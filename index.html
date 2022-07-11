@@ -1,0 +1,279 @@
+<html>
+    <head>
+        <title>
+            Bill
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="bill.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+        <script src="./bill.js"></script>
+    </head>
+    <body ng-app="bot" ng-controller="catbot">
+        <div class="row">
+            <div class="col s12">
+              <div class="card light-blue hoverable todetails">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col s9">
+                            <select ng-model="c" ng-change="company()">
+                                <option value="" disabled selected>Choose a Company</option>
+                                <option value="c1">V Guard Industries Ltd</option>
+                                <option value="c2">CPS Prompt Industries</option>
+                                <option value="c3">Brooks Engineering Industries</option>
+                            </select>
+                            {{address}}
+                        </div>
+                        <div class="col s2 offset-s1 bold">
+                            <a class="black-text">Date: {{date + "." + (month+1) + "." + year}}</a>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row" ng-if="ifcompanyselected">
+            <div class="col s12">
+                <div class="card  light-blue lighten-3 colheading">
+                    <div class="row colheadingalign">
+                        <div class="col s5 center">Description</div>
+                        <div class="col s2 center">Quantity</div>
+                        <div class="col s2 center">Rate</div>
+                        <div class="col s3 center">Amount</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-if="c1">
+            <div class="col s12 itemrowadjust">
+                <div class="card light-blue lighten-5 itemcol">
+                    <div class="row">
+                        <div class="col s5 center firstcol">
+                            <select class="showselecttag light-blue lighten-5" ng-model="rate" onchange="angular.element(this).scope().getrate(event)">
+                                <option value="" disabled selected>Select item</option>
+                                <option value="23.00">H80 Center Plate</option>
+                                <option value="17.50">H80 Front Plate</option>
+                                <option value="23.00">F120 Center Plate</option>
+                                <option value="15.00">F80 End Cover</option>
+                                <option value="36.00">vos FH 110 Impeller</option>
+                                <option value="28.0">Term Box 112/132</option>
+                                <option value="8.00">Term Cover 112/132</option>
+                                <option value="40.00">voss TW-100 Impeller</option>
+                            </select>
+                        </div>
+                        <div class="col s2 center">
+                            <input class="center thisisinputofqty" type="number" ng-model="qty"  onchange="angular.element(this).scope().getqty(event)">
+                        </div>
+                        <div class="col s2 center itemcolpadding">
+                            {{rate | currency : "₹"}}
+                        </div>
+                        <div class="col s3 center itemcolpadding">
+                            {{qty*rate | currency : "₹"}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-if="c1" ng-repeat="el in list">
+            <div class="col s12 itemrowadjust">
+                <div class="card light-blue lighten-5 itemcol">
+                    <div class="row">
+                        <div class="col s5 center firstcol">
+                            <select class="showselecttag light-blue lighten-5" ng-model="rate" onchange="angular.element(this).scope().getrate(event)">
+                                <option value="" disabled selected>Select item</option>
+                                <option value="23.00">H80 Center Plate</option>
+                                <option value="17.50">H80 Front Plate</option>
+                                <option value="23.00">F120 Center Plate</option>
+                                <option value="15.00">F80 End Cover</option>
+                                <option value="36.00">vos FH 110 Impeller</option>
+                                <option value="28.0">Term Box 112/132</option>
+                                <option value="8.00">Term Cover 112/132</option>
+                                <option value="40.00">voss TW-100 Impeller</option>
+                            </select>
+                        </div>
+                        <div class="col s2 center">
+                            <input class="center thisisinputofqty" type="number" ng-model="qty"  onchange="angular.element(this).scope().getqty(event)">
+                        </div>
+                        <div class="col s2 center itemcolpadding">
+                            {{rate | currency : "₹"}}
+                        </div>
+                        <div class="col s3 center itemcolpadding">
+                            {{qty*rate | currency : "₹"}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-if="c2">
+            <div class="col s12 itemrowadjust">
+                <div class="card light-blue lighten-5 itemcol">
+                    <div class="row">
+                        <div class="col s5 center firstcol">
+                            <select class="showselecttag light-blue lighten-5" ng-model="rate" onchange="angular.element(this).scope().getrate(event)">
+                                <option value="" disabled selected>Select item</option>
+                                <option value="14.00">VSP AD F110 Body</option>
+                                <option value="14.00">Booster Body</option>
+                                <option value="42.00">VSP RF18 casing with Brass insert & CSK screw 4×8</option>
+                            </select>
+                        </div>
+                        <div class="col s2 center">
+                            <input class="center" type="number" ng-model="qty"  onchange="angular.element(this).scope().getqty(event)">
+                        </div>
+                        <div class="col s2 center itemcolpadding">
+                            {{rate | currency : "₹"}}
+                        </div>
+                        <div class="col s3 center itemcolpadding">
+                            {{qty*rate | currency : "₹"}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-if="c2" ng-repeat="el in list">
+            <div class="col s12 itemrowadjust">
+                <div class="card light-blue lighten-5 itemcol">
+                    <div class="row">
+                        <div class="col s5 center firstcol">
+                            <select class="showselecttag light-blue lighten-5" ng-model="rate" onchange="angular.element(this).scope().getrate(event)">
+                                <option value="" disabled selected>Select item</option>
+                                <option value="14.00">VSP AD F110 Body</option>
+                                <option value="14.00">Booster Body</option>
+                                <option value="42.00">VSP RF18 casing with Brass insert & CSK screw 4×8</option>
+                            </select>
+                        </div>
+                        <div class="col s2 center">
+                            <input class="center" type="number" ng-model="qty"  onchange="angular.element(this).scope().getqty(event)">
+                        </div>
+                        <div class="col s2 center itemcolpadding">
+                            {{rate | currency : "₹"}}
+                        </div>
+                        <div class="col s3 center itemcolpadding">
+                            {{qty*rate | currency : "₹"}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-if="c3">
+            <div class="col s12 itemrowadjust">
+                <div class="card light-blue lighten-5 itemcol">
+                    <div class="row">
+                        <div class="col s5 center firstcol">
+                            <select class="showselecttag light-blue lighten-5" ng-model="rate" onchange="angular.element(this).scope().getrate(event)">
+                                <option value="" disabled selected>Select item</option>
+                                <option value="11.00">525H Rear Cover (2 holes)</option>
+                                <option value="15.00">4025 Rear Cover (2 holes)</option>
+                                <option value="13.00">4025 Rear Cover</option>
+                                <option value="9.00">3025R Alu. Rear Cover</option>
+                                <option value="11.00">4025 SJ Rear Cover</option>
+                            </select>
+                        </div>
+                        <div class="col s2 center">
+                            <input class="center" type="number" ng-model="qty"  onchange="angular.element(this).scope().getqty(event)">
+                        </div>
+                        <div class="col s2 center itemcolpadding">
+                            {{rate | currency : "₹"}}
+                        </div>
+                        <div class="col s3 center itemcolpadding">
+                            {{qty*rate | currency : "₹"}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-if="c3" ng-repeat="el in list">
+            <div class="col s12 itemrowadjust">
+                <div class="card light-blue lighten-5 itemcol">
+                    <div class="row">
+                        <div class="col s5 center firstcol">
+                            <select class="showselecttag light-blue lighten-5" ng-model="rate" onchange="angular.element(this).scope().getrate(event)">
+                                <option value="" disabled selected>Select item</option>
+                                <option value="11.00">525H Rear Cover (2 holes)</option>
+                                <option value="15.00">4025 Rear Cover (2 holes)</option>
+                                <option value="13.00">4025 Rear Cover</option>
+                                <option value="9.00">3025R Alu. Rear Cover</option>
+                                <option value="11.00">4025 SJ Rear Cover</option>
+                            </select>
+                        </div>
+                        <div class="col s2 center">
+                            <input class="center" type="number" ng-model="qty"  onchange="angular.element(this).scope().getqty(event)">
+                        </div>
+                        <div class="col s2 center itemcolpadding">
+                            {{rate | currency : "₹"}}
+                        </div>
+                        <div class="col s3 center itemcolpadding">
+                            {{qty*rate | currency : "₹"}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-hide="calcresult">
+            <div class="col s12">
+                <div class="card  light-blue lighten-4 resultcard">
+                    <div class="row colheadingalign">
+                        <div class="col s3 offset-s9 center">{{total | currency : "₹"}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-hide="calcresult">
+            <div class="col s12">
+                <div class="card  light-blue lighten-4 resultcard">
+                    <div class="row colheadingalign">
+                        <div class="col s2 offset-s7 center">CGST 6%</div>
+                        <div class="col s3 center">{{gst | currency : "₹"}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-hide="calcresult">
+            <div class="col s12">
+                <div class="card  light-blue lighten-4 resultcard">
+                    <div class="row colheadingalign">
+                        <div class="col s2 offset-s7 center">SGST 6%</div>
+                        <div class="col s3 center">{{gst | currency : "₹"}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-hide="calcresult">
+            <div class="col s12">
+                <div class="card  light-blue lighten-4 resultcard">
+                    <div class="row colheadingalign">
+                        <div class="col s2 offset-s7 center">Roundoff {{symbol}}</div>
+                        <div class="col s3 center">{{roundoff | currency : "₹"}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-hide="calcresult">
+            <div class="col s12">
+                <div class="card green lighten-1 resultcard">
+                    <div class="row colheadingalign">
+                        <div class="col s3 offset-s9 center">{{overalltotal | currency : "₹"}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row" ng-hide="calcresult">
+            <div class="col s12">
+                <div class="card green lighten-2 resultcard">
+                    <div class="row colheadingalign">
+                        <div class="col s12">{{rupees}}</div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="row"  ng-show="showbuttons">
+            <div class="col s6 center">
+                <a class="btn waves-effect waves-light addbtn" id="addbtntoclcik" ng-click="next()">Add</a>
+            </div>
+            <div class="col s6 center">
+                <a class="btn waves-effect waves-light submitbtn" ng-click="result()">Submit</a>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+</html>
