@@ -1,0 +1,64 @@
+.select-wrapper input.select-dropdown{
+    border-bottom: none
+}
+input{
+    border-bottom: none !important;
+}
+.todetails{
+    border-radius: 10px;
+}
+.select-wrapper input.select-dropdown{
+    font-weight: bold;
+    font-size: 18px;
+}
+.colheading{
+    font-weight: bold;
+    border-radius: 10px;
+    height: 50px;
+    margin-bottom: 5px;
+}
+.colheadingalign{
+    padding-top: 12px;
+}
+.itemcol{
+    border-radius: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.itemcolpadding{
+    padding-top: 15px !important;
+}
+.firstcol{
+    padding-left: 30px !important;
+}
+.showselecttag{
+    display: inline;
+}
+.itemrowadjust{
+    margin-top: -15px !important;
+    margin-bottom: -15px !important;
+}
+.resultcard{
+    font-weight: bold;
+    border-radius: 10px;
+    height: 50px;
+    margin-bottom: 0px;
+    margin-top: -15px;
+}
+.bold{
+    font-weight: bold;
+}
+.addbtn{
+    background-color: darkmagenta;
+    border-radius: 10px;
+}
+.addbtn:hover{
+    background-color: rgb(216, 72, 216);
+}
+.submitbtn{
+    background-color: green;
+    border-radius: 10px;
+}
+.submitbtn:hover{
+    background-color: rgb(69, 224, 69);
+}
